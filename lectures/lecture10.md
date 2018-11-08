@@ -22,7 +22,26 @@
 
 ### 补充说明
 
-- 暂无说明
+[21:56]对于匿名结构的赋值并不是只能通过重新定义一个变量来初始化，匿名结构体嵌入匿名结构体也是可以的，如下:
+```go
+package main
+
+import "fmt"
+
+type person struct {
+	Name string
+	Age int
+	Contact struct{
+		Phone,City string
+	}
+}
+
+func main() {
+	a := person{Name:"joe",Age:19,Contact: struct{ Phone, City string }{Phone:"1232432435" , City: "beijing"}}
+	fmt.Println(a)
+}
+
+```
 
 ### 相关链接
 
